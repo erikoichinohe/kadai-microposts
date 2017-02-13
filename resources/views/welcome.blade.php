@@ -11,7 +11,7 @@
                     {!! Form::textarea('content',old('content'),['class'=>'form-control', 'rows'=>'5']) !!}
                 </div>
                 {!! Form::submit('Post',['class' => 'btn btn-primary btn-block']) !!}
-                <!! Form::close() !!}
+                {!! Form::close() !!}
             </aside>
             
             <div class="col-xs-8">
