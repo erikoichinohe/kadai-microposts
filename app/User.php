@@ -119,6 +119,6 @@ class User extends Model implements AuthenticatableContract,
     
     public function already_liked($micropostId)
     {
-        return $this->favorites()->where('follow_id', $userId)->exists();
+        return $this->favorites()->where('micropost_id', $micropostId)->exists();
     }
 }

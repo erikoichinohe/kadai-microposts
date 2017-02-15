@@ -141,10 +141,10 @@ class UsersController extends Controller
         
         $data = [
             'user' => $user,
-            'microposts' => $microposts,
+            'favorites' => $favorites,
         ];
         
-        $data += $this->counts($microposts);
+        $data += $this->counts($favorites);
         
         return view ('users.favorites', $data);
     }
