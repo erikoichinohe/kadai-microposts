@@ -20,6 +20,8 @@
                         <ul class="dropdown-menu">
                             <li>{!! link_to_route('users.show', 'My Profile' , ['id' => $user->id]) !!}</li>
                             <li role="separator" class="dividar"></li>
+                            <li>{!! link_to_route('users.favorites','My Favorites', ['id' => $user->id]) !!}</li>
+                            <li role="separator" class="dividar"></li>
                             <li>{!! link_to_route('logout.get','Logout') !!}</li>
                         </ul>
                     </li>
