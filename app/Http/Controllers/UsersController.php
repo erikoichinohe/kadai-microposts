@@ -138,13 +138,12 @@ class UsersController extends Controller
     {
         $user = User::find($id);
         $favorites = $user->favorites()->paginate(10);
-        
         $data = [
             'user' => $user,
             'favorites' => $favorites,
         ];
         
-        $data += $this->counts($favorites);
+        $data += $this->counts($user);
         
         return view ('users.favorites', $data);
     }

@@ -3,7 +3,7 @@
     <?php $user = $micropost->user; ?>
     <li class="media">
         <div class="media-left">
-            <img class="media-object img-rounded" src="{{ Gravatar::src($user->email, 50) }}" alt="">
+             <img class="media-object img-rounded" src="{{ Gravatar::src($user->email, 50) }}" alt="">
         </div>
         <div class="media-body">
             <div>
@@ -12,13 +12,15 @@
             <div>
                <p> {!! nl2br(e($micropost->content)) !!}</p>
             </div>
-            <div class="form-group">
+            <div>
+                @include('favorites.like_button',['micropost' => $micropost])
+            </div>
+            <div>
                 @if(Auth::user()->id === $micropost->user_id)
                     {!! Form::open(['route'=>['microposts.destroy', $micropost->id], 'method' =>'delete']) !!}
                         {!! Form::submit('Delete', ['class'=>'btn btn-danger btn-xs']) !!}
                     {!! Form::close() !!}
                 @endif
-                @include('favorites.like_button',['micropost' => $micropost])
             </div>
 
         </div>

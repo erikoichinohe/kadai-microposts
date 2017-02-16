@@ -90,10 +90,10 @@ class User extends Model implements AuthenticatableContract,
     
     public function favorites()
     {
-        $this->belongsToMany(User::class, 'favorites','user_id','micropost_id')->withTimestamps();
+        return $this->belongsToMany(Micropost::class, 'favorites','user_id','micropost_id')->withTimestamps();
     }
     
-    public function like()
+    public function like($micropostId)
     {
         $exist = $this->already_liked($micropostId);
         
@@ -105,7 +105,7 @@ class User extends Model implements AuthenticatableContract,
         }
     }
     
-    public function unlike()
+    public function unlike($micropostId)
     {
         $exist = $this->already_liked($micropostId);
         
